@@ -1,0 +1,12 @@
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: performance-addon-operator
+  namespace: openshift-operators
+spec:
+  channel: "4.8"
+  installPlanApproval: Automatic
+  name: performance-addon-operator
+  source:  {{ $.Values.quay.operator_source }}
+  sourceNamespace: openshift-marketplace
