@@ -1,6 +1,11 @@
 cluster:
   name: ocptest
-  ## Optional override parameters for local cluster
+  api_vip: 10.198.7.139
+  ingress_vip: 10.198.7.141
+  default_router: 10.198.7.129
+  clusternetwork: 10.128.0.0/14
+  servicenetwork: 172.30.0.0/16
+## Optional override parameters for local cluster
   #################################################
   #default_storage_class: "ocs-storagecluster-ceph-rbd"
   ## default_storage_class: "ocs-external-storagecluster-ceph-rbd"
