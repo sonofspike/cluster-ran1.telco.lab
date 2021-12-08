@@ -1,7 +1,7 @@
 cluster:
-  name: ocptest
-  api_vip: 10.198.7.139
-  ingress_vip: 10.198.7.141
+  name: ran1
+  api_vip: 10.198.7.161
+  ingress_vip: 10.198.7.162
   default_router: 10.198.7.129
   clusternetwork: 10.128.0.0/14
   servicenetwork: 172.30.0.0/16
@@ -14,63 +14,51 @@ cluster:
 
 nodes:
   masters:
-  - name: "master1"
+  - name: "m0"
     role: master
     lso: "true"
     ocs: "true"
-    bond0_IP: "192.19.129.23"
+    bond0_IP: "10.198.7.163"
     int1_name: "enp1s0"
-    int1_mac: "52:54:00:e9:0e:fd"
-    int2_name: "enp2s0"
-    int2_mac: "52:54:01:e9:0e:fd"
-    int3_name: "enp3s0"
-    int3_mac: "52:54:02:e9:0e:fd"
-    bmc_username: ADMIN
-    bmc_password: Redhat01
-    bmc_address: http://192.19.130.12:8080/redfish/v1/Systems/b5df1a28-d830-43f1-81ac-6e085802acd3
+    int1_mac: "52:54:00:11:61:04"
+    bmc_username: root
+    bmc_password: password
+    bmc_address: http://10.198.7.135:8080/redfish/v1/Systems/1cb93f51-3b1a-4db9-8503-cef677b58bda
 
-  - name: "master2"
+  - name: "m1"
     role: master
     lso: "true"
     ocs: "true"
-    bond0_IP: "192.19.129.24"
+    bond0_IP: "10.198.7.164"
     int1_name: "enp1s0"
-    int1_mac: "52:54:00:96:aa:61"
-    int2_name: "enp2s0"
-    int2_mac: "52:54:01:96:aa:61"
-    int3_name: "enp3s0"
-    int3_mac: "52:54:02:96:aa:61"
-    bmc_username: ADMIN
-    bmc_password: Redhat01
-    bmc_address: http://192.19.130.13:8080/redfish/v1/Systems/ffa83a3f-3ebb-48d3-b72f-377c6b324381
+    int1_mac: "52:54:00:11:61:05"
+    bmc_username: root
+    bmc_password: password
+    bmc_address: http://10.198.7.136:8080/redfish/v1/Systems/cf8bb8ed-853a-4e48-875d-9255c53a9400
 
-  - name: "master3"
+  - name: "m2"
     role: master
     lso: "true"
     ocs: "true"
-    bond0_IP: "192.19.129.25"
+    bond0_IP: "10.198.7.165"
     int1_name: "enp1s0"
-    int1_mac: "52:54:00:65:65:56"
-    int2_name: "enp2s0"
-    int2_mac: "52:54:01:65:65:56"
-    int3_name: "enp3s0"
-    int3_mac: "52:54:02:65:65:56"
-    bmc_username: ADMIN
-    bmc_password: Redhat01
-    bmc_address: http://192.19.130.14:8080/redfish/v1/Systems/e3cd938d-32c7-4fb1-831a-43ff67f102d0
+    int1_mac: "52:54:00:11:61:06"
+    bmc_username: root
+    bmc_password: password
+    bmc_address: http://10.198.7.137:8080/redfish/v1/Systems/de4fb9f4-5786-4b0b-8f86-50c09548b8a2
 
 #  workers:
 #  - name: "worker1"
 #    role: worker
 #    lso: "true"
 #    ocs: "false"
-#    bond0_IP: "192.19.129.26"
+#    bond0_IP: "10.198.7.26"
 #    int1_name: "enp1s0"
 #    int1_mac: "52:54:00:46:8a:bf"
 #    int2_name: "enp2s0"
 #    int2_mac: "52:54:01:46:8a:bf"
 #    int3_name: "enp3s0"
 #    int3_mac: "52:54:02:46:8a:bf"
-#    bmc_username: ADMIN
-#    bmc_password: Redhat01
-#    bmc_address: http://192.19.130.11:8080/redfish/v1/Systems/e7619f50-b9bc-45a8-bf64-641c398fdc75
+#    bmc_username: root
+#    bmc_password: password
+#    bmc_address: http://10.198.7.11:8080/redfish/v1/Systems/e7619f50-b9bc-45a8-bf64-641c398fdc75

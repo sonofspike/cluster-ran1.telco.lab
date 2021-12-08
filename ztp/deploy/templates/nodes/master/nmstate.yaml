@@ -38,23 +38,23 @@ spec:
         ipv4:
           enabled: false
           #dhcp: false
-      - name: {{ .int2_name }}
-        type: ethernet
-        state: ip
-        mtu: 8996
-        ipv6:
-          enabled: false
-        ipv4:
-          enabled: false
+#      - name: {{ .int2_name }}
+#        type: ethernet
+#        state: ip
+#        mtu: 8996
+#        ipv6:
+#          enabled: false
+#        ipv4:
+#          enabled: false
           #dhcp: false
-      - name: {{ .int3_name }}
-        type: ethernet
-        state: up
-        mtu: 8996
-        ipv6:
-          enabled: false
-        ipv4:
-          enabled: false
+#      - name: {{ .int3_name }}
+#        type: ethernet
+#        state: up
+#        mtu: 8996
+#        ipv6:
+#          enabled: false
+#        ipv4:
+#          enabled: false
           #dhcp: false
     dns-resolver:
       config:
@@ -68,9 +68,9 @@ spec:
   interfaces:
     - name: {{ .int1_name | quote }}
       macAddress: {{ .int1_mac | quote }}
-    - name: {{ .int2_name | quote }}
-      macAddress: {{ .int2_mac | quote }}
-    - name: {{ .int3_name | quote }}
-      macAddress: {{ .int3_mac | quote }}
+#    - name: {{ .int2_name | quote }}
+#      macAddress: {{ .int2_mac | quote }}
+#    - name: {{ .int3_name | quote }}
+#      macAddress: {{ .int3_mac | quote }}
 ---
 {{- end }}
