@@ -5,7 +5,7 @@ metadata:
   name: cluster-{{ $.Values.cluster.name }}
   namespace: {{ $.Values.global.namespace }}
 spec:
-  baseDomain: lab.diktio.net
+  baseDomain: {{ $.Values.global.domain }}
   clusterName: {{ $.Values.cluster.name }}
   controlPlaneConfig:
     servingCertificates: {}
