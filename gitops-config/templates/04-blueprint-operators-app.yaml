@@ -10,13 +10,13 @@ spec:
     server: 'https://kubernetes.default.svc'
   project: default
   source:
-    repoURL: {{ $.Values.global.values_cluster_prefix_url }}/{{ $.Values.cluster.name }}.{{ $.Values.global.domain }}.git
+    repoURL: {{ $.Values.global.values_cluster_prefix_url }}/{{ $.Values.global.cluster_git_prefix }}-{{ $.Values.cluster.name }}.{{ $.Values.global.domain }}.git
     targetRevision: HEAD
     path: bp-operators
     helm:
       valueFiles:
       - "{{ $.Values.global.values_directory_url }}/values.yaml"
-      - "{{ $.Values.global.values_cluster_prefix_url }}/{{ $.Values.cluster.name }}.{{ $.Values.global.domain }}/raw/main/values.yaml"
+      - "{{ $.Values.global.values_cluster_prefix_url }}/{{ $.Values.global.cluster_git_prefix }}-{{ $.Values.cluster.name }}.{{ $.Values.global.domain }}/raw/main/values.yaml"
   syncPolicy:
     automated:
       # Default prune is "false" 
