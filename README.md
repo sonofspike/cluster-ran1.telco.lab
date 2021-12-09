@@ -1,1 +1,1 @@
-# cluster-ocptest.telco.lab
+# cluster-ocp.telco.lab
