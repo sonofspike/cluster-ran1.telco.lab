@@ -9,7 +9,7 @@ spec:
     server: 'https://api.{{ $.Values.cluster.name }}.{{ $.Values.global.domain }}:6443'
   project: default
   source:
-    repoURL: '{{ $.Values.global.values_cluster_prefix_url }}/{{ $.Values.global.name }}.{{ $.Values.global.domain }}.git'
+    repoURL: '{{ $.Values.global.values_cluster_prefix_url }}/{{ $.Values.global.cluster_git_prefix }}-{{ $.Values.global.name }}.{{ $.Values.global.domain }}.git'
     path: gitops-push-operator-mirror
     targetRevision: HEAD
     helm:
