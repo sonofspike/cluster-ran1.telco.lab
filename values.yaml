@@ -47,18 +47,14 @@ nodes:
     bmc_password: password
     bmc_address: http://10.198.7.137:8080/redfish/v1/Systems/de4fb9f4-5786-4b0b-8f86-50c09548b8a2
 
-#  workers:
-#  - name: "worker1"
-#    role: worker
-#    lso: "true"
-#    ocs: "false"
-#    bond0_IP: "10.198.7.26"
-#    int1_name: "enp1s0"
-#    int1_mac: "52:54:00:46:8a:bf"
-#    int2_name: "enp2s0"
-#    int2_mac: "52:54:01:46:8a:bf"
-#    int3_name: "enp3s0"
-#    int3_mac: "52:54:02:46:8a:bf"
-#    bmc_username: root
-#    bmc_password: password
-#    bmc_address: http://10.198.7.11:8080/redfish/v1/Systems/e7619f50-b9bc-45a8-bf64-641c398fdc75
+  workers:
+  - name: "w0"
+    role: worker
+    lso: "true"
+    ocs: "false"
+    bond0_IP: "10.198.7.166"
+    int1_name: "enp1s0"
+    int1_mac: "7C:D3:0A:66:0E:18"
+    bmc_username: USERID
+    bmc_password: PASSW0RD
+    bmc_address: http://10.198.0.68/redfish/v1/Systems/1
