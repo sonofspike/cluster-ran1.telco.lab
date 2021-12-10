@@ -18,7 +18,7 @@ spec:
   automatedCleaningMode: disabled
   hardwareProfile: libvirt
   bmc:
-    address: redfish-virtualmedia+{{ .bmc_address }}
+    address: redfish-virtualmedia{{ .bmc_address }}
     credentialsName: bmc-{{ .name }}-{{ $.Values.cluster.name }}
     disableCertificateVerification: True
 ---

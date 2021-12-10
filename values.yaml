@@ -23,7 +23,7 @@ nodes:
     int1_mac: "52:54:00:11:61:04"
     bmc_username: root
     bmc_password: password
-    bmc_address: http://10.198.7.135:8080/redfish/v1/Systems/1cb93f51-3b1a-4db9-8503-cef677b58bda
+    bmc_address: +http://10.198.7.135:8080/redfish/v1/Systems/1cb93f51-3b1a-4db9-8503-cef677b58bda
 
   - name: "m1"
     role: master
@@ -34,7 +34,7 @@ nodes:
     int1_mac: "52:54:00:11:61:05"
     bmc_username: root
     bmc_password: password
-    bmc_address: http://10.198.7.136:8080/redfish/v1/Systems/cf8bb8ed-853a-4e48-875d-9255c53a9400
+    bmc_address: +http://10.198.7.136:8080/redfish/v1/Systems/cf8bb8ed-853a-4e48-875d-9255c53a9400
 
   - name: "m2"
     role: master
@@ -45,7 +45,7 @@ nodes:
     int1_mac: "52:54:00:11:61:06"
     bmc_username: root
     bmc_password: password
-    bmc_address: http://10.198.7.137:8080/redfish/v1/Systems/de4fb9f4-5786-4b0b-8f86-50c09548b8a2
+    bmc_address: +http://10.198.7.137:8080/redfish/v1/Systems/de4fb9f4-5786-4b0b-8f86-50c09548b8a2
 
   workers:
   - name: "w0"
@@ -57,4 +57,4 @@ nodes:
     int1_mac: "7C:D3:0A:66:0E:18"
     bmc_username: USERID
     bmc_password: PASSW0RD
-    bmc_address: http://10.198.0.68/redfish/v1/Systems/1
+    bmc_address: //10.198.0.68/redfish/v1/Systems/1
