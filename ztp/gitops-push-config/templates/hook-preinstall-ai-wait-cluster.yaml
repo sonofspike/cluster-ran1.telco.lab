@@ -30,7 +30,7 @@ spec:
               echo "Cluster Post Install Hook"
               URL_READY="Pausing $SLEEP seconds..."
               while [ "$URL_READY" != "https" ]; do
-                echo "Waiting for the AI status URL to be ready. ($URL_READY)"
+                echo "Waiting for the AI events status URL to be ready. ($URL_READY)"
                 sleep $SLEEP
                 URL=$(oc -n {{ $.Values.global.namespace }} get agentclusterinstalls.extensions.hive.openshift.io aci-{{ $.Values.cluster.name }} -o=jsonpath="{.status.debugInfo.eventsURL}")
                 URL_READY=$(echo $URL | awk -F ":" '{print $1}')
@@ -39,6 +39,7 @@ spec:
               while :
               do
                 echo "Waiting for the cluster to complete installation. ($INSTALL_STATUS)"
+                echo $URL
                 sleep $SLEEP
                 INSTALL_STATUS=$( curl -s -k $URL | awk -F '"' '{print $(NF-5)}' )
                 if [ "$INSTALL_STATUS" = "Successfully completed installing cluster" ]
