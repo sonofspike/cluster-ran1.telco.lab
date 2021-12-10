@@ -57,4 +57,4 @@ nodes:
     int1_mac: "7C:D3:0A:66:0E:18"
     bmc_username: USERID
     bmc_password: PASSW0RD
-    bmc_address: https//10.198.0.68/redfish/v1/Systems/1
+    bmc_address: https://10.198.0.68/redfish/v1/Systems/1
