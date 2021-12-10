@@ -53,7 +53,7 @@ nodes:
     lso: "true"
     ocs: "false"
     bond0_IP: "10.198.7.166"
-    int1_name: "enp1s0"
+    int1_name: "ens4f0"
     int1_mac: "7C:D3:0A:66:0E:18"
     bmc_username: USERID
     bmc_password: PASSW0RD
