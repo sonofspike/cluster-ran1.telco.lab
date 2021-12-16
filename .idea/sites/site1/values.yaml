@@ -1,0 +1,7 @@
+site:
+  name: "site1"
+  site_labels:
+  - ran.openshift.io/test1: 'test label site1'
+  - ran.openshift.io/test2: 'test label site2'
+  site_annotations:
+  - kubernetes.io/description: 'test annotation site1'

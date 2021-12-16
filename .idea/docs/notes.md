@@ -31,6 +31,17 @@
 
 
 
+==========================ROLE Manifest in roles application
+=== MCP per site per profile to control upgrades
+=== Site can have multiple profiles
+=== profile = hardware layout or use-case
+name:
+role_labels:
+ -
+role_annotations:
+ -
+#pao as manifest
+
 
 
 

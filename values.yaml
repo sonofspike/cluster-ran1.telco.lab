@@ -5,13 +5,16 @@ cluster:
   default_router: 10.198.7.129
   clusternetwork: 10.128.0.0/14
   servicenetwork: 172.30.0.0/16
+  cluster_labels:
+  - ran.openshift.io/test1: 'test label ran1'
+  cluster_annotations:
+  - kubernetes.io/description: 'test annotation ran1'
 ## Optional override parameters for local cluster
   #################################################
   #default_storage_class: "ocs-storagecluster-ceph-rbd"
   ## default_storage_class: "ocs-external-storagecluster-ceph-rbd"
   #ssh_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDkn6tx/IfpY1Eb9QVBsr2Q5WHDGSDTbysuW+2OiifkVfrP/0zVjo7pe1bBxUaEID0rWN6CC1VTwS4GX6cZhGr0wlgT8TUN+rHutxL0Tawqy+yTzqYJ+Vfeilz3CfdAt06QJL9sy57RrlsSTIrlU8CijJTght+v57tmWyKDt2mNJL/5WX9PG40mgXqQ+tfFn+cluOc3V+XcK5dx89dS3oD3Wzn/FmTdwKm8+bnZapWBz7YJf3BU5AL+E82vRCIyZ2MnzbjJ33nTgEF/NdKLEPtyp1dT3Lb0mGB8duj0CFtA3u7CwVi/KMp9JdssN3mN8mGtPE+NwYKsbDA1/++jRCqX login'
   #operator_catalog_name: redhat-operator-index
-
 nodes:
   masters:
   - name: "m0"

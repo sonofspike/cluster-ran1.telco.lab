@@ -1,0 +1,49 @@
+node:
+  site: site1
+  name: "w200"
+  role: worker
+  technology: 5gmmw
+  net_function: cu_001
+  hw_profile: lenovo-sr650
+  # hint to try and deploy the RHCOS tro the correct disk
+  # for given platform including VMs
+  boot_dev_hint: /dev/sda
+  # set to true if not installing on SSD or NVMe, example spinning HDD
+  boot_spinner_hint: false
+  lso: "true"
+  ocs: "false"
+  node_labels:
+  - ran.openshift.io/lso: ''
+  node_annotations:
+  - kubernetes.io/description: 'test annotation w200'
+  # IP will be applied to either the bond interface (if enabled) or the 1st interface in the "interfaces" list
+  IP: "10.198.7.167"
+  prefix_length: 26
+  #Assumes 1st "bond_members" interface(s) in "interface list" forms the bond
+  bond_enable: "true"
+  bond_name: bond0
+  bond_members: "2"
+  bond_mode: active-backup
+  #
+  int_mtu: 9000
+  #
+  interfaces:
+  - name: "ens4f0"
+    mac: "3c:fd:fe:b4:d3:a8"
+  - name: "ens6f0"
+    mac: "3c:fd:fe:b4:d3:ec"
+  - name: "ens4f1"
+    mac: "3c:fd:fe:b4:d3:a9"
+  - name: "ens6f1"
+    mac: "3c:fd:fe:b4:d3:ed"
+  - name: "eno1"
+    mac: "7c:d3:0a:66:0a:60"
+  - name: "eno2"
+    mac: "7c:d3:0a:66:0a:61"
+  - name: "eno3"
+    mac: "7c:d3:0a:66:0a:62"
+  - name: "eno4"
+    mac: "7c:d3:0a:66:0a:63"
+  bmc_username: USERID
+  bmc_password: PASSW0RD
+  bmc_address: redfish-virtualmedia+https://10.198.0.67/redfish/v1/Systems/1
