@@ -46,4 +46,4 @@ node:
     mac: "7c:d3:0a:66:0a:63"
   bmc_username: USERID
   bmc_password: PASSW0RD
-  bmc_address: redfish-virtualmedia+https://10.198.0.67/redfish/v1/Systems/1
+  bmc_address: redfish-virtualmedia+https://10.198.0.66/redfish/v1/Systems/1
