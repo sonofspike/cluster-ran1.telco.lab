@@ -18,7 +18,7 @@ node:
   - kubernetes.io/description: 'test annotation w200'
   # IP will be applied to either the bond interface (if enabled) or the 1st interface in the "interfaces" list
   IP: "10.198.7.168"
-  prefix_length: 26
+  prefix_length: 25
   #Assumes 1st "bond_members" interface(s) in "interface list" forms the bond
   bond_enable: "false"
   bond_name: bond0
