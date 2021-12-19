@@ -18,4 +18,19 @@ spec:
 #      - "{{ $.Values.global.values_global_url }}/values.yaml"
 #      - "{{ $.Values.global.values_cluster_prefix_url }}/{{ $.Values.global.cluster_git_prefix }}-{{ $.Values.cluster.name }}.{{ $.Values.global.domain }}/raw/main/values.yaml"
 #      - "{{ $.Values.global.values_cluster_prefix_url }}/{{ $.Values.global.cluster_git_prefix }}-{{ $.Values.cluster.name }}.{{ $.Values.global.domain }}/raw/main/workers/{{ $.Values.node.name }}/values.yaml"
-# https://raw.githubusercontent.com/sonofspike/cluster-ran1.telco.lab/main/workers/w100/values.yaml
+  syncPolicy:
+    automated:
+      allowEmpty: true
+      # prune: true
+      selfHeal: true
+    retry:
+      backoff:
+        duration: 1m
+        factor: 2
+        maxDuration: 3m
+      limit: -1
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
