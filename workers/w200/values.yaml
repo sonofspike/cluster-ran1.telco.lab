@@ -13,9 +13,12 @@ node:
   lso: "true"
   ocs: "false"
   node_labels:
-  - ran.openshift.io/lso: ''
+    ran.openshift.io/sriov: ''
+    ran.openshift.io/oran-mh-vfio: ''
+    ran.openshift.io/oran-mh-netdevice: ''
+    ran.openshift.io/oran-bh-vfio: ''
   node_annotations:
-  - kubernetes.io/description: 'test annotation w200'
+    kubernetes.io/description: 'test annotation cu_001'
   # IP will be applied to either the bond interface (if enabled) or the 1st interface in the "interfaces" list
   IP: "10.198.7.167"
   prefix_length: 26

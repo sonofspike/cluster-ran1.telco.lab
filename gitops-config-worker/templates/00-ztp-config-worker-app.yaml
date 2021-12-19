@@ -10,8 +10,8 @@ spec:
     server: 'https://kubernetes.default.svc'
   project: default
   source:
-    repoURL: '{{ $.Values.global.values_cluster_prefix_url }}/{{ $.Values.global.cluster_git_prefix }}-{{ $.Values.cluster.name }}.{{ $.Values.global.domain }}.git'
-    path: profiles/{{ $.Values.node.technology }}/{{ $.Values.node.net_function }}/config
+    repoURL: '{{ $.Values.global.base_git_url }}'
+    path: bp-profiles/{{ $.Values.node.technology }}/{{ $.Values.node.net_function }}/config
     targetRevision: HEAD
     helm:
       valueFiles:
