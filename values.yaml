@@ -50,14 +50,3 @@ nodes:
     bmc_password: password
     bmc_address: http://10.198.7.137:8080/redfish/v1/Systems/de4fb9f4-5786-4b0b-8f86-50c09548b8a2
 
-  workers:
-  - name: "w0"
-    role: worker
-    lso: "true"
-    ocs: "false"
-    bond0_IP: "10.198.7.166"
-    int1_name: "ens4f0"
-    int1_mac: "3c:fd:fe:b4:d0:68"
-    bmc_username: USERID
-    bmc_password: PASSW0RD
-    bmc_address: https://10.198.0.68/redfish/v1/Systems/1
