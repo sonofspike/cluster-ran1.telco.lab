@@ -39,7 +39,8 @@ spec:
               while :
               do
                 echo "Waiting for the cluster to complete installation. ($INSTALL_STATUS)"
-                echo $URL
+                # need to refresh the URL every time to avoid using the old URL at times where the deploy was deleted and restarted
+                URL=$(oc -n {{ $.Values.global.namespace }} get agentclusterinstalls.extensions.hive.openshift.io aci-{{ $.Values.cluster.name }} -o=jsonpath="{.status.debugInfo.eventsURL}")
                 sleep $SLEEP
                 INSTALL_STATUS=$( curl -s -k $URL | awk -F '"' '{print $(NF-5)}' )
                 if [ "$INSTALL_STATUS" = "Successfully completed installing cluster" ]

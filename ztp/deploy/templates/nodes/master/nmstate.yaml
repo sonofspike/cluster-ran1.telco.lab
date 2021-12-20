@@ -2,60 +2,85 @@
 apiVersion: agent-install.openshift.io/v1beta1
 kind: NMStateConfig
 metadata:
-  name: nmstate-{{ .name }}-{{ $.Values.cluster.name }}
+  name: nmstate-{{ $.Values.cluster.name }}-{{ .site }}-{{ .name }}
   namespace: {{ $.Values.global.namespace }}
   labels:
     cluster-name: {{ $.Values.cluster.name }}-nmstate
 spec:
   config:
     interfaces:
-      - name: bond0
+{{- $ipaddress := .IP -}}
+{{- $prefix := .prefix_length -}}
+{{- $bondname := .bond_name -}}
+{{- $bondmode := .bond_mode -}}
+{{- $intmtu := .int_mtu -}}
+{{- if eq (toString .bond_enable) "true" }}
+  {{- range $index, $int := .interfaces }}
+    {{- if eq $index 0 }}  
+      - name: {{ $bondname }}
         type: bond
         state: up
-        mtu: 8996
+        mtu: {{ $intmtu }}
         ipv6:
           enabled: false
         ipv4:
           enabled: true
           address:
-            - ip: {{ .bond0_IP }}
-              prefix-length: 24
+            - ip: {{ $ipaddress }}
+              prefix-length: {{ $prefix }}
           dhcp: false
         link-aggregation:
-          mode: active-backup
+          mode: {{ $bondmode }}
           options:
             miimon: '150'
-            primary: {{ .int1_name | quote }}
+            primary: {{ $int.name | quote }}
           slaves:
-          - {{ .int1_name }}
-          # - {{ .int2_name }}
-      - name: {{ .int1_name }}
+    {{- end -}}
+    {{- if lt $index (int (toString (.bond_members))) }}  
+          - {{ $int.name }}
+    {{- end -}}
+  {{- end -}}
+  {{- range $index, $int := .interfaces }}
+      - name: {{ $int.name }}
         type: ethernet
+    {{- if lt $index (int (toString (.bond_members))) }}  
         state: up
-        mtu: 8996
+    {{- else }}
+        state: down
+    {{- end }}
+        mtu: {{ $intmtu }}
         ipv6:
           enabled: false
         ipv4:
           enabled: false
-          #dhcp: false
-#      - name: {{ .int2_name }}
-#        type: ethernet
-#        state: ip
-#        mtu: 8996
-#        ipv6:
-#          enabled: false
-#        ipv4:
-#          enabled: false
-          #dhcp: false
-#      - name: {{ .int3_name }}
-#        type: ethernet
-#        state: up
-#        mtu: 8996
-#        ipv6:
-#          enabled: false
-#        ipv4:
-#          enabled: false
-          #dhcp: false
+  {{- end }}
+{{- else }}
+  {{- range $index, $int := .interfaces }}
+    {{- if eq $index 0 }}  
+      - name: {{ $int.name }}
+        type: ethernet
+        state: up
+        mtu: {{ $intmtu }} 
+        ipv6:
+          enabled: false
+        ipv4:
+          enabled: true
+          address:
+            - ip: {{ $ipaddress }}
+              prefix-length: {{ $prefix }}
+          dhcp: false
+    {{- else }}
+      - name: {{ $int.name }}
+        type: ethernet
+        state: down
+        mtu: {{ $intmtu }}
+        ipv6:
+          enabled: false
+        ipv4:
+          enabled: false
+    {{- end }}
+  {{- end }}
+{{- end }}
     dns-resolver:
       config:
         server:
@@ -64,13 +89,19 @@ spec:
       config:
         - destination: 0.0.0.0/0
           next-hop-address: {{ $.Values.cluster.default_router }}
-          next-hop-interface: bond0
+{{- if eq (toString .bond_enable) "true" }}
+          next-hop-interface: {{ .bond_name }}
+{{- else }}
+  {{- range $index, $int := .interfaces }}
+    {{- if eq $index 0 }}  
+          next-hop-interface: {{ $int.name }}
+    {{- end }}
+  {{- end }}
+{{- end }}
   interfaces:
-    - name: {{ .int1_name | quote }}
-      macAddress: {{ .int1_mac | quote }}
-#    - name: {{ .int2_name | quote }}
-#      macAddress: {{ .int2_mac | quote }}
-#    - name: {{ .int3_name | quote }}
-#      macAddress: {{ .int3_mac | quote }}
+{{- range $index, $int := .interfaces }}
+    - name: {{ $int.name | quote }}
+      macAddress: {{ $int.mac | quote }}
+{{- end }}
 ---
 {{- end }}

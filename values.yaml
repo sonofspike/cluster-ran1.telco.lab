@@ -18,35 +18,100 @@ cluster:
 nodes:
   masters:
   - name: "m0"
+    site: site1
     role: master
+    # hint to try and deploy the RHCOS tro the correct disk
+    # for given platform including VMs
+    boot_dev_hint: /dev/sda
+    # set to true if not installing on SSD or NVMe, example spinning HDD
+    boot_spinner_hint: false
     lso: "true"
     ocs: "true"
-    bond0_IP: "10.198.7.163"
-    int1_name: "enp1s0"
-    int1_mac: "52:54:00:11:61:04"
+    node_labels:
+      kubernetes.io/description: 'test label ran'
+    node_annotations:
+      kubernetes.io/description: 'test annotation ran'
+    # IP will be applied to either the bond interface (if enabled) or the 1st interface in the "interfaces" list
+    IP: "10.198.7.163"
+    prefix_length: 26
+    #Assumes 1st "bond_members" interface(s) in "interface list" forms the bond
+    bond_enable: "false"
+    bond_name: bond0
+    bond_members: "2"
+    bond_mode: active-backup
+    #
+    int_mtu: 9000
+    #
+    interfaces:
+    - name: "enp1s0"
+      mac: "52:54:00:11:61:04"
+    #
     bmc_username: root
     bmc_password: password
-    bmc_address: http://10.198.7.135:8080/redfish/v1/Systems/1cb93f51-3b1a-4db9-8503-cef677b58bda
+    bmc_address: redfish-virtualmedia+http://10.198.7.135:8080/redfish/v1/Systems/1cb93f51-3b1a-4db9-8503-cef677b58bda
 
   - name: "m1"
+    site: site1
     role: master
+    # hint to try and deploy the RHCOS tro the correct disk
+    # for given platform including VMs
+    boot_dev_hint: /dev/sda
+    # set to true if not installing on SSD or NVMe, example spinning HDD
+    boot_spinner_hint: false
     lso: "true"
     ocs: "true"
-    bond0_IP: "10.198.7.164"
-    int1_name: "enp1s0"
-    int1_mac: "52:54:00:11:61:05"
+    node_labels:
+      kubernetes.io/description: 'test label ran'
+    node_annotations:
+      kubernetes.io/description: 'test annotation ran'
+    # IP will be applied to either the bond interface (if enabled) or the 1st interface in the "interfaces" list
+    IP: "10.198.7.164"
+    prefix_length: 26
+    #Assumes 1st "bond_members" interface(s) in "interface list" forms the bond
+    bond_enable: "false"
+    bond_name: bond0
+    bond_members: "2"
+    bond_mode: active-backup
+    #
+    int_mtu: 9000
+    #
+    interfaces:
+    - name: "enp1s0"
+      mac: "52:54:00:11:61:05"
+    #
     bmc_username: root
     bmc_password: password
-    bmc_address: http://10.198.7.136:8080/redfish/v1/Systems/cf8bb8ed-853a-4e48-875d-9255c53a9400
+    bmc_address: redfish-virtualmedia+http://10.198.7.136:8080/redfish/v1/Systems/cf8bb8ed-853a-4e48-875d-9255c53a9400
 
   - name: "m2"
+    site: site1
     role: master
+    # hint to try and deploy the RHCOS to the correct disk
+    # for given platform including VMs
+    boot_dev_hint: /dev/sda
+    # set to true if not installing on SSD or NVMe, example spinning HDD
+    boot_spinner_hint: false
     lso: "true"
     ocs: "true"
-    bond0_IP: "10.198.7.165"
-    int1_name: "enp1s0"
-    int1_mac: "52:54:00:11:61:06"
+    node_labels:
+      kubernetes.io/description: 'test label ran'
+    node_annotations:
+      kubernetes.io/description: 'test annotation ran'
+    # IP will be applied to either the bond interface (if enabled) or the 1st interface in the "interfaces" list
+    IP: "10.198.7.165"
+    prefix_length: 26
+    #Assumes 1st "bond_members" interface(s) in "interface list" forms the bond
+    bond_enable: "false"
+    bond_name: bond0
+    bond_members: "2"
+    bond_mode: active-backup
+    #
+    int_mtu: 9000
+    #
+    interfaces:
+    - name: "enp1s0"
+      mac: "52:54:00:11:61:06"
+    #
     bmc_username: root
     bmc_password: password
-    bmc_address: http://10.198.7.137:8080/redfish/v1/Systems/de4fb9f4-5786-4b0b-8f86-50c09548b8a2
-
+    bmc_address: redfish-virtualmedia+http://10.198.7.137:8080/redfish/v1/Systems/de4fb9f4-5786-4b0b-8f86-50c09548b8a2
