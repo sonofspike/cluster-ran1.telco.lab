@@ -34,7 +34,7 @@ node:
   - name: "ens4f0"
     mac: "3c:fd:fe:e3:ad:1d"
   - name: "ens4f1"
-    mac: "3c:fd:fe:e3:ad:1d"
+    mac: "3c:fd:fe:e3:ad:1c"
   - name: "eno1"
     mac: "38:68:dd:0e:49:c0"
   - name: "eno2"
