@@ -43,7 +43,8 @@ spec:
                 echo "Waiting for the cluster to complete installation. ($INSTALL_STATUS)"
                 sleep $SLEEP
                 INSTALL_STATUS=$( curl -s -k $URL | awk -F '"' '{print $(NF-9)}' )
-                if [ "$INSTALL_STATUS" = "Successfully completed installing cluster" ]
+                #if [ "$INSTALL_STATUS" = "Successfully completed installing cluster" ]
+                if `curl -s -k $URL | egrep "Successfully completed installing cluster" -q`
                 then break
                 fi
               done
@@ -61,5 +62,5 @@ spec:
               argocd logout --config /tmp/config admin
               rm -f /tmp/kubeconfig /tmp/config 
               echo "All done! Hooray!"
-              sleep 300
+              sleep 30
 

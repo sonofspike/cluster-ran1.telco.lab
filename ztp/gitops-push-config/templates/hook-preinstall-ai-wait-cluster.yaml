@@ -43,7 +43,8 @@ spec:
                 URL=$(oc -n {{ $.Values.global.namespace }} get agentclusterinstalls.extensions.hive.openshift.io aci-{{ $.Values.cluster.name }} -o=jsonpath="{.status.debugInfo.eventsURL}")
                 sleep $SLEEP
                 INSTALL_STATUS=$( curl -s -k $URL | awk -F '"' '{print $(NF-9)}' )
-                if [ "$INSTALL_STATUS" = "Successfully completed installing cluster" ]
+                #if [ "$INSTALL_STATUS" = "Successfully completed installing cluster" ]
+                if `curl -s -k $URL | egrep "Successfully completed installing cluster" -q`
                 then break
                 fi
               done
