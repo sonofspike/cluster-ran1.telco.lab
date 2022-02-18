@@ -22,7 +22,7 @@ nodes:
     role: master
     # hint to try and deploy the RHCOS tro the correct disk
     # for given platform including VMs
-    boot_dev_hint: /dev/sda
+    boot_dev_hint: /dev/vda
     # set to true if not installing on SSD or NVMe, example spinning HDD
     boot_spinner_hint: false
     lso: "true"
@@ -55,7 +55,7 @@ nodes:
     role: master
     # hint to try and deploy the RHCOS tro the correct disk
     # for given platform including VMs
-    boot_dev_hint: /dev/sda
+    boot_dev_hint: /dev/vda
     # set to true if not installing on SSD or NVMe, example spinning HDD
     boot_spinner_hint: false
     lso: "true"
@@ -88,7 +88,7 @@ nodes:
     role: master
     # hint to try and deploy the RHCOS to the correct disk
     # for given platform including VMs
-    boot_dev_hint: /dev/sda
+    boot_dev_hint: /dev/vda
     # set to true if not installing on SSD or NVMe, example spinning HDD
     boot_spinner_hint: false
     lso: "true"

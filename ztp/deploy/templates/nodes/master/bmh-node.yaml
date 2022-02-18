@@ -21,9 +21,9 @@ spec:
   automatedCleaningMode: disabled
   # Depricated
   hardwareProfile: libvirt
-  #rootDeviceHints: 
-  #  deviceName: {{ .boot_dev_hint }}
-  #  rotational: {{ .boot_spinner_hint }}
+  rootDeviceHints: 
+    deviceName: {{ .boot_dev_hint | quote }}
+  #  Rotational: {{ .boot_spinner_hint }}
   bmc:
     address: {{ .bmc_address }}
     credentialsName: bmc-{{ $.Values.cluster.name }}-{{ .site }}-{{ .name }}

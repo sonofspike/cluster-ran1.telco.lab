@@ -10,7 +10,7 @@ node:
   boot_dev_hint: /dev/sda
   # set to true if not installing on SSD or NVMe, example spinning HDD
   boot_spinner_hint: false
-  lso: "true"
+  lso: "false"
   ocs: "false"
   node_labels:
     ran.openshift.io/sriov: ''
