@@ -28,6 +28,7 @@ spec:
             - -c
             - |
               echo "Cluster Post Install Hook"
+              sleep 300
               URL_READY="Pausing $SLEEP seconds..."
               while [ "$URL_READY" != "https" ]; do
                 echo "Waiting for the AI events status URL to be ready. ($URL_READY)"
